@@ -51,6 +51,7 @@ def load_current_resource
       retry_delay 5
       action :nothing
       subscribes :restart, resources("ruby_block[sensu_service_trigger]"), :delayed
+      ignore_failure true
     end
   when "runit"
     service new_resource.service do
